@@ -1,97 +1,121 @@
 <div class="container-fluid vh-100 section1 d-flex container1">
-    <div class="container my-auto section2 w-50 my-auto rounded-4 bg-light bg-opacity-50 " style="box-shadow: 3em; ">
-        <div class="container text-center text-dark m-4 p-4">
+    <div class="container my-auto section2  my-auto rounded-4 text-white bg-opacity-25 " style="box-shadow: 3em; ">
+        <div class="container text-center text-white mb-4 mt-4">
             <h1>Signup Form</h1>
         </div>
-        <div class="container ">
+        <div class="container d-flex justify-content-center">
             <form [formGroup]="signupForm" (submit)="submitdata()">
-
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelpId"
-                        formControlName="name" placeholder="Enter your name Here......." />
-                    <div class="text-danger" *ngIf="f['name'].errors">
-                        <div *ngIf="submitted and ['name'].errors['required']">
-                            Name is required
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelpId"
+                                formControlName="name" placeholder="Enter your name Here......." />
+                            <div class="text-danger" *ngIf="f['name'].errors">
+                                <div *ngIf="submitted and ['name'].errors['required']">
+                                    Name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                aria-describedby="emailHelpId" formControlName="password"
+                                placeholder="Enter your Password Here......." />
+                            <div class="text-danger" *ngIf="f['password'].errors">
+                                <div *ngIf="submitted and ['password'].errors['required']">
+                                    paswsword is required</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label for="" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" id="password"
-                        aria-describedby="emailHelpId" formControlName="password"
-                        placeholder="Enter your Password Here......." />
-                    <div class="text-danger" *ngIf="f['password'].errors">
-                        <div *ngIf="submitted and ['password'].errors['required']">
-                            paswsword is required</div>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="mb-3">
+                            <label for="" class="form-label">email</label>
+                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId"
+                                formControlName="email" placeholder="Enter your email Here......." />
+                            <div class="text-danger" *ngIf="f['email'].errors">
+                                <div *ngIf="submitted and ['email'].errors['required']">
+                                    email is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-select form-select-lg" name="role" id="role" formControlName="role">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                            <div class="text-danger" *ngIf="f['role'].errors">
+                                <div *ngIf="submitted and ['role'].errors['required']">
+                                    email is required</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">email</label>
-                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId"
-                        formControlName="email" placeholder="Enter your email Here......." />
-                    <div class="text-danger" *ngIf="f['email'].errors">
-                        <div *ngIf="submitted and ['email'].errors['required']">
-                            email is required</div>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="mb-3">
+                            <label for="phoneNo" class="form-label">phoenNo</label>
+                            <input type="number" class="form-control" name="phoneNo" id="phoneNo"
+                                aria-describedby="phonNoHelpId" formControlName="phoneNo"
+                                placeholder="Enter your phoenNo Here......." />
+                            <div class="text-danger" *ngIf="f['phoneNo'].errors">
+                                <div *ngIf="submitted and ['phoneNo'].errors['required']">
+                                    phoneNo is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg ">
+                        <div class="mb-3">
+                            <label for="dob" class="form-label">dob</label>
+                            <input type="date" class="form-control" name="dob" id="dob"
+                                aria-describedby="dobHelpId" formControlName="dob"
+                                placeholder="Enter your phoenNo Here......." />
+                            <div class="text-danger" *ngIf="f['dob'].errors">
+                                <div *ngIf="submitted and ['dob'].errors['required']">
+                                    Date Of Birth is required</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="role" class="form-label">Role</label>
-                    <select class="form-select form-select-lg" name="role" id="role" formControlName="role">
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                    <div class="text-danger" *ngIf="f['role'].errors">
-                        <div *ngIf="submitted and ['role'].errors['required']">
-                            email is required</div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="phoneNo" class="form-label">address</label>
+                            <textarea class="form-control" name="address" id="address" aria-describedby="addressHelpId"
+                                formControlName="address" placeholder="Enter your address Here......."></textarea>
+                            <div class="text-danger" *ngIf="f['address'].errors">
+                                <div *ngIf="submitted and ['address'].errors['required']">
+                                    address is required</div>
+                            </div>
+                        </div>
+                       
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="phoneNo" class="form-label">phoenNo</label>
-                    <input type="number" class="form-control" name="phoneNo" id="phoneNo"
-                        aria-describedby="phonNoHelpId" formControlName="phoneNo"
-                        placeholder="Enter your phoenNo Here......." />
-                    <div class="text-danger" *ngIf="f['phoneNo'].errors">
-                        <div *ngIf="submitted and ['phoneNo'].errors['required']">
-                            phoneNo is required</div>
+                <div class="row">
+                    <div class="col">
+                        <div class="text-center mt-4">
+
+                            <button type="submit" class="btn btn-primary w-100">
+                                Submit
+                            </button>
+                        </div>
+                        <div class="text-center ">
+        
+                            <nav class="nav justify-content-center  ">
+                                <a class="nav-link active text-white" routerLink="/auth/login" aria-current="page">Login</a>
+                                <a class="nav-link text-white" routerLink="">Home</a>
+        
+                            </nav>
+        
+                        </div>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="phoneNo" class="form-label">address</label>
-                    <textarea class="form-control" name="address" id="address" aria-describedby="addressHelpId"
-                        formControlName="address" placeholder="Enter your address Here......."></textarea>
-                    <div class="text-danger" *ngIf="f['address'].errors">
-                        <div *ngIf="submitted and ['address'].errors['required']">
-                            address is required</div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="dob" class="form-label">dob</label>
-                    <input type="date" class="form-control" name="dob" id="dob"
-                        aria-describedby="dobHelpId" formControlName="dob"
-                        placeholder="Enter your phoenNo Here......." />
-                    <div class="text-danger" *ngIf="f['dob'].errors">
-                        <div *ngIf="submitted and ['dob'].errors['required']">
-                            Date Of Birth is required</div>
-                    </div>
-                </div>
-                <div class="text-center">
-
-                    <button type="submit" class="btn btn-primary btn-lg">
-                        Submit
-                    </button>
-                </div>
-                <div class="text-center">
-
-                    <nav class="nav justify-content-center  ">
-                        <a class="nav-link active" routerLink="/auth/login" aria-current="page">Login</a>
-                        <a class="nav-link" routerLink="">Home</a>
-
-                    </nav>
-
-                </div>
-
             </form>
         </div>
     </div>
