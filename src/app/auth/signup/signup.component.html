@@ -1,8 +1,9 @@
 <div class="container-fluid vh-100 section1 d-flex container1">
-    <div class="container my-auto section2  my-auto rounded-4 text-white bg-opacity-25 " style="box-shadow: 3em; ">
+    <div class="container my-auto section2  my-auto rounded-4 text-white bg-opacity-25 " style="box-shadow: -1px -1px 20px 11px white;border:2px solid white ">
         <div class="container text-center text-white mb-4 mt-4">
             <h1>Signup Form</h1>
         </div>
+        <hr>
         <div class="container d-flex justify-content-center">
             <form [formGroup]="signupForm" (submit)="submitdata()">
                 <div class="row">
@@ -105,7 +106,7 @@
                                 Submit
                             </button>
                         </div>
-                        <div class="text-center ">
+                        <div class="text-center mb-4">
         
                             <nav class="nav justify-content-center  ">
                                 <a class="nav-link active text-white" routerLink="/auth/login" aria-current="page">Login</a>
