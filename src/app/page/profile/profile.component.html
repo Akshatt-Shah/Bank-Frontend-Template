@@ -1,0 +1,68 @@
+<div class="container-fluid vh-100 section1 d-flex container1">
+    <div class="container my-auto section2 w-50 my-auto rounded-4 bg-light bg-opacity-50 " style="box-shadow: 3em; ">
+        <div class="container text-center text-dark m-4 p-4">
+            <h1>Profile Form</h1>
+        </div>
+        <div class="container ">
+            <form [formGroup]="profileForm" (submit)="submitdata()">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelpId"
+                        formControlName="name" placeholder="Enter your name Here......." [(ngModel)]="userdata.name" />
+                   
+                </div>
+
+               
+                <div class="mb-3">
+                    <label for="" class="form-label">email</label>
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId"
+                        formControlName="email" placeholder="Enter your email Here......." [(ngModel)]="userdata.email" />
+                   
+                </div>
+                <!-- <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <select class="form-select form-select-lg" name="role" id="role" formControlName="role" [(ngModel)]="userdata.role">
+                        <option value="user" >User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    
+                </div> -->
+                <div class="mb-3">
+                    <label for="phoneNo" class="form-label">phoenNo</label>
+                    <input type="number" class="form-control" name="phoneNo" id="phoneNo"
+                        aria-describedby="phonNoHelpId" formControlName="phoneNo"
+                        placeholder="Enter your phoenNo Here......." [(ngModel)]="userdata.phoneNo"/>
+                   
+                </div>
+                <div class="mb-3">
+                    <label for="phoneNo" class="form-label">address</label>
+                    <textarea class="form-control" name="address" id="address" aria-describedby="addressHelpId"
+                        formControlName="address" placeholder="Enter your address Here......." [(ngModel)]="userdata.address"></textarea>
+                    
+                </div>
+                <!-- <div class="mb-3">
+                    <label for="dob" class="form-label">dob</label>
+                    <input type="date" class="form-control" name="dob" id="dob"
+                        aria-describedby="dobHelpId" formControlName="dob"
+                        placeholder="Enter your phoenNo Here......." [(ngModel)]="userdata.dob"/>
+                   
+                </div> -->
+                <div class="text-center mb-4">
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                        Update Profile
+                    </button>
+                </div>
+                <!-- <div class="text-center">
+
+                    <nav class="nav justify-content-center  ">
+                        <a class="nav-link active" routerLink="/auth/login" aria-current="page">Login</a>
+                        <a class="nav-link" routerLink="">Home</a>
+
+                    </nav>
+
+                </div> -->
+
+            </form>
+        </div>
+    </div>

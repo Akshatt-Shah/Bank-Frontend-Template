@@ -1,0 +1,106 @@
+<div class="card">
+    <p-table [value]="Accountdata" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10, 25, 50]" paginatorLocale="fa-IR">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:25%">Account No</th>
+                <th style="width:25%">Total Amount</th>
+                <th style="width:25%">Account Type</th>
+                <th style="width:25%">User Id</th>
+                <th style="width:25%">View</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-account>
+            <tr>
+                <td>{{ account.Account_No }}</td>
+                <td>{{ account.totalamount }}</td>
+                <td>{{ account.type }}</td>
+                <td>{{ account.user }}</td>
+                <td><input type="button" class="btn btn-outline-primary" value="view" (click)="viewdata(account)" data-bs-toggle="modal" data-bs-target="#modalId"></td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
+</div>
+
+<div class="container">
+    <!-- Button trigger modal -->
+ 
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">
+                        Account Details
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row  m-4">
+                            <div class="col">
+                               <b>Account No :</b>
+                            </div>
+                            <div class="col">
+                              {{viewaccountdata.Account_No}}
+                            </div>
+                        </div>
+                        <div class="row  m-4 ">
+                            <div class="col">
+                              <b>Total Amount :</b> 
+                            </div>
+                            <div class="col">
+                              {{viewaccountdata.totalamount}}
+                            </div>
+                        </div>
+                        <div class="row  m-4">
+                            <div class="col">
+                               <b>Account Type : </b>
+                            </div>
+                            <div class="col">
+                              {{viewaccountdata.type}}
+                            </div>
+                        </div>
+                        <div class="row  m-4">
+                            <div class="col">
+                               <b>Account Holder Id : </b>
+                            </div>
+                            <div class="col">
+                              {{viewaccountdata.user}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var modalId = document.getElementById('modalId');
+
+        modalId.addEventListener('show.bs.modal', function (event) {
+            // Button that triggered the modal
+            let button = event.relatedTarget;
+            // Extract info from data-bs-* attributes
+            let recipient = button.getAttribute('data-bs-whatever');
+
+            // Use above variables to manipulate the DOM
+        });
+    </script>
+
+</div>

@@ -1,0 +1,93 @@
+<div class="container-fluid bg-info-subtle d-flex justify-content-center align-items-center" style="height: 90vh;">
+    <div class="container rounded-5 w-50" style="border:4px solid rgb(5, 234, 241)">
+        <form [formGroup]="transactionForm" (submit)="transaction()">
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <h1>Fund Transfer</h1>
+                </div>
+            </div>
+            <b>
+                <hr>
+            </b>
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="sender_account_no" class="form-label">Sender Account No</label>
+                        <input type="number" class="form-control" name="sender_account_no" id="sender_account_no"
+                            formControlName="sender_account_no" aria-describedby="helpId"
+                            placeholder="Enter Sender Account No" />
+                        <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+                        <div *ngIf="submitted && f['sender_account_no'].errors?.['required']" class="text-bg-danger">
+                            Account No is required</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="receiver_account_no" class="form-label">Receiver Account No</label>
+                        <input type="number" class="form-control" name="receiver_account_no" id="receiver_account_no"
+                            formControlName="receiver_account_no" aria-describedby="helpId"
+                            placeholder="Enter Receiver Account No" />
+                        <div *ngIf="submitted && f['receiver_account_no'].errors?.['required']" class="text-bg-danger">
+                            Account No is required</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="transactionType" class="form-label">Fund Type</label>
+                        <select class="form-select form-select-lg" name="transactionType" id="transactionType"
+                            formControlName="transactionType">
+                            <option selected>Select one</option>
+                            <option value="Credit">Credit</option>
+                            <option value="Debit">Debit</option>
+                            <option value="Transfer">Transfer</option>
+                        </select>
+                        <div *ngIf="submitted && f['transactionType'].errors?.['required']" class="text-bg-danger">
+                            transaction Type is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descriptio</label>
+                        <textarea class="form-control" name="description" id="description" formControlName="description"
+                            rows="3" placeholder="Enter Description"></textarea>
+                        <div *ngIf="submitted && f['description'].errors?.['required']" class="text-bg-danger">
+                            Description is required</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount</label>
+                        <input type="number" class="form-control" name="amount" id="amount" formControlName="amount"
+                            aria-describedby="helpId" placeholder="Enter Receiver Account No" />
+                        <div *ngIf="submitted && f['amount'].errors?.['required']" class="text-bg-danger">Amount is
+                            required
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-4 mb-3">
+                <div class="col">
+                    <div class="mb-3 text-center">
+                        <button type="submit" class="btn btn-outline-primary w-100 rounded-3">
+                            Submit
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

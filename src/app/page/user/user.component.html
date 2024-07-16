@@ -1,0 +1,36 @@
+<div class="mt-3 table-responsive">
+
+    <div class="card">
+        <p-table [value]="userData" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+            [tableStyle]="{ 'min-width': '50rem' }"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[10, 25, 50]" paginatorLocale="fa-IR">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width:25%">Name</th>
+                    <th style="width:25%">Email</th>
+                    <th style="width:25%">Role</th>
+                    <th style="width:25%">Address</th>
+                    <th style="width:25%">Date Of Birth</th>
+                    <th style="width:25%">Phone No</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-customer>
+                <tr>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.role }}</td>
+                    <td>{{ customer.address }}</td>
+                    <td>{{ customer.dob }}</td>
+                    <td>{{ customer.phoneNo }}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+                <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+            </ng-template>
+            <ng-template pTemplate="paginatorright">
+                <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

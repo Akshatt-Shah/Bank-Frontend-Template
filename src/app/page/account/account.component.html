@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="container">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalId">
+            Create Bank Account
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">
+                            Modal title
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <form [formGroup]="accountForm">
+                                <div class="mb-3">
+                                    <label for="type" class="form-label">Type</label>
+                                    <select class="form-select form-select-lg" name="type" id="type"
+                                        formControlName="type">
+                                        <option selected>Select one</option>
+                                        <option value="Saving">Saving</option>
+                                        <option value="Current">Current</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 text-center">
+
+                                    <button type="submit" class="btn btn-primary" (click)="createAccount()">
+                                        Submit
+                                    </button>
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="container text-center ">
+        <!-- <form action="" class="w-50 d-flex flex-row gap-5">
+
+            <div class="mb-3">
+                <label for="accountNo" class="form-label">AccountNo</label>
+                <select class="form-select form-select-lg" name="accountNo" id="accountNo" #accno>
+                    <option *ngFor="let item of accountData" value="{{item.Account_No}}" selected="{{item._id}}">
+                        {{item.Account_No}}
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <button type="button" class="btn btn-primary" (click)="selectacc(accno.value)">
+                    Select Account
+                </button>
+
+            </div>
+        </form> -->
+
+        <div class="card ">
+            <p-table [value]="accountData" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                [tableStyle]="{ 'min-width': '50rem' ,}"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [rowsPerPageOptions]="[10, 25, 50]" paginatorLocale="fa-IR">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width:25%">Account No </th>
+                        <th style="width:25%">Account Type </th>
+                        <th style="width:25%">Account Total Amount </th>
+                        <th style="width:25%">Select</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-account>
+                    <tr>
+                        <td style="text-align: center;">{{ account.Account_No }}</td>
+                        <td style="text-align: center;">{{ account.type }}</td>
+                        <td style="text-align: center;">{{ account.totalamount }}</td>
+                        <td style="text-align: center;"><button type="button" class="btn btn-primary" (click)="selectacc(account.Account_No)">
+                                Select Account
+                            </button></td>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="paginatorleft">
+                    <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+                </ng-template>
+                <ng-template pTemplate="paginatorright">
+                    <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

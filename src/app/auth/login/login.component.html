@@ -1,0 +1,49 @@
+<div class="container-fluid vh-100 section1 d-flex container1">
+    <div class="container my-auto section2 w-50 my-auto rounded-4 bg-light bg-opacity-50 " style="box-shadow: 3em; ">
+        <div class="container text-center text-dark m-4 p-4">
+            <h1>Login Form</h1>
+        </div>
+        <div class="container ">
+            <form [formGroup]="loginform" (submit)="submitdata()">
+
+                <div class="mb-3">
+                    <label for="" class="form-label">E-Mail</label>
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="nameHelpId"
+                        formControlName="email" placeholder="Enter your E-Mail Here......." />
+                    <div class="text-danger" *ngIf="f['email'].errors">
+                        <div *ngIf="submitted and ['email'].errors['required']">
+                            Name is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password"
+                        aria-describedby="emailHelpId" formControlName="password"
+                        placeholder="Enter your Password Here......." />
+                    <div class="text-danger" *ngIf="f['password'].errors">
+                        <div *ngIf="submitted and ['password'].errors['required']">
+                            paswsword is required</div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Submit
+                    </button>
+                </div>
+                <div class="text-center">
+
+                    <nav class="nav justify-content-center  ">
+                        <a class="nav-link active" routerLink="/auth/signup" aria-current="page">Signup</a>
+                        <a class="nav-link" routerLink="">Home</a>
+
+                    </nav>
+
+                </div>
+
+            </form>
+        </div>
+    </div>

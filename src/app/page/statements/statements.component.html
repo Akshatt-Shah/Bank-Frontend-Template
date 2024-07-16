@@ -1,0 +1,25 @@
+<div class="container text-center ">
+    <h1>All Transaction</h1>
+</div>
+
+<div class="card ">
+    <div class="row ">
+        <div class="col-lg-4" *ngFor="let item of transactionhistory" style="margin-top: 20px;">
+            <div class="card text-start">
+                <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title" /> -->
+                <div class="card-body">
+                    <h4 class="card-title">Transaction Type : {{item.transactionType}}</h4>
+                    <hr>
+                    <div>
+                        <p class="card-text">Sender Account No : {{item.SenderAccount_No}}</p>
+                        <p class="card-text">Sender Account Name : {{item.Sender_Name}}</p>
+                        <p class="card-text">Reciever Account No : {{item.RecieverAccount_No}}</p>
+                        <p class="card-text">Reciever Account Name : {{item.Reciewer_Name}}</p>
+                        <p class="card-text">Amount : {{item.amount}}</p>
+                        <p class="card-text">Date Of Transaction : {{item.date |date:"MMM dd, yyyy 'at' hh:mm a"}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
